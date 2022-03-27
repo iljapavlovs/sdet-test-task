@@ -1,13 +1,18 @@
 package co.copper.testtask.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+//todo - using @Data on JPA entities is not advised (https://thorben-janssen.com/lombok-hibernate-how-to-avoid-common-pitfalls/)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,6 +23,7 @@ public class Asset {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    //todo - use Currency type
     private String currency;
 
     @Column(name = "year_of_issue")

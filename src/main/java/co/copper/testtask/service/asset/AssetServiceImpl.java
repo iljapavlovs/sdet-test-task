@@ -12,14 +12,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AssetServiceImpl implements AssetService {
+    //todo - Field Injection is Evil
     @Autowired
     private ExternalApproveService approveService;
 
+    //todo - Field Injection is Evil
     @Autowired
     private AssetRepository assetRepository;
 
     @Override
+//    todo - inconsistency - why Collateral interface is not used?
+//    todo - naming could be better - like isApproved()
     public boolean approve(AssetDto dto) {
+        //todo - not much reason to use additional layer of abstaction for AssetAdapater
         return approveService.approve(new AssetAdapter(dto)) == 0;
     }
 
@@ -28,11 +33,13 @@ public class AssetServiceImpl implements AssetService {
         return assetRepository.save(asset);
     }
 
+    //todo - unnecessary method, also could be private
     @Override
     public Optional<Asset> load(Long id) {
         return assetRepository.findById(id);
     }
 
+    //todo - mapping should not be part of Service - single responsibility principle
     @Override
     public Asset fromDto(AssetDto dto) {
         return new Asset(
@@ -44,8 +51,10 @@ public class AssetServiceImpl implements AssetService {
         );
     }
 
+    //todo - mapping should not be part of Service - single responsibility principle
     @Override
     public AssetDto toDTO(Asset asset) {
+//        todo - use Builder pattern for DTOs
         return new AssetDto(
                 asset.getId(),
                 asset.getName(),
@@ -55,6 +64,7 @@ public class AssetServiceImpl implements AssetService {
         );
     }
 
+    //todo - no point having this method since just receives an object and returns it's field
     @Override
     public Long getId(Asset asset) {
         return asset.getId();

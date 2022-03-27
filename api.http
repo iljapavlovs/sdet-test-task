@@ -1,0 +1,18 @@
+POST localhost:8080/api/v1/collaterals
+Content-Type: application/json
+
+{
+  "name": "name",
+  "currency": "EUR",
+  "year": "2022",
+  "value": "1000000",
+  "type": "asset"
+
+}
+
+> {%
+    client.global.set("resource_location_url", response.headers.valuesOf("Location")[0]);
+%}
+
+###
+GET {{resource_location_url}}
