@@ -6,19 +6,19 @@ import co.copper.testtask.dto.AssetDto;
 import co.copper.testtask.external.ExternalApproveService;
 import co.copper.testtask.model.Asset;
 import co.copper.testtask.repository.AssetRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class AssetServiceImpl implements AssetService {
-    //todo - Field Injection is Evil
-    @Autowired
-    private ExternalApproveService approveService;
+    private final ExternalApproveService approveService;
 
-    //todo - Field Injection is Evil
-    @Autowired
-    private AssetRepository assetRepository;
+    private final AssetRepository assetRepository;
+
+    public AssetServiceImpl(ExternalApproveService approveService, AssetRepository assetRepository) {
+        this.approveService = approveService;
+        this.assetRepository = assetRepository;
+    }
 
     @Override
 //    todo - inconsistency - why Collateral interface is not used?

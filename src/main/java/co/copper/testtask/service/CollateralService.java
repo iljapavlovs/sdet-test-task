@@ -3,7 +3,7 @@ package co.copper.testtask.service;
 import java.util.Optional;
 
 import co.copper.testtask.dto.AssetDto;
-import co.copper.testtask.dto.Collateral;
+import co.copper.testtask.dto.CollateralDto;
 import co.copper.testtask.service.asset.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,19 +16,15 @@ public class CollateralService {
     @Autowired
     private AssetService assetService;
 
-    //todo can be removed
-    @SuppressWarnings("ConstantConditions")
-    public Long saveCollateral(Collateral object) {
+    public Long createCollateral(CollateralDto collateralDto) {
         //todo - this is really bad
-        if (!(object instanceof AssetDto)) {
+        if (!(collateralDto instanceof AssetDto)) {
             //todo - need to throw Application specific exception
             throw new IllegalArgumentException();
         }
-        //todo - use `final var` instead
-        AssetDto asset = (AssetDto) object;
-        //todo - use `final var` instead
-        boolean approved = assetService.approve(asset);
-        //todo - should throw an Application specific exception from here, not from Controller. And handled by @ExceptionHandler
+
+        final var asset = (AssetDto) collateralDto;
+        final var approved = assetService.approve(asset);
         if (!approved) {
             return null;
         }
@@ -42,7 +38,7 @@ public class CollateralService {
     }
 
     //todo - naming could be better
-    public Collateral getInfo(String id) {
+    public CollateralDto getCollateralById(String id) {
         return Optional.of(Long.parseLong(id))
                 .flatMap(assetService::load)
                 .map(assetService::toDTO)

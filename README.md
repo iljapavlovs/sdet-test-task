@@ -1,17 +1,25 @@
-# sdet-test-task
-Installation requirements:
-- JDK starting 11 
-- Gradle starting 5
+# Collateral Service
 
-To run service use `gradle run`
+### Running project
+1. Build the project
+```bash
+./gradlew clean build -x test
+```
 
-In this test task you should:
+2. Run project via docker
+```bash
+docker compose up --build
+```
 
-1. Analyze this test service
-2. Write test cases that will cover this service
-3. Write automation tests for written test cases. You can use Java or Typescript
-4. Write some suggestion for service. How we can improve it
 
-As a result you should provide link to Github repository that contains 
-this service and tests including docker-compose file to run service with tests
+### Running self-contained tests in Docker containers
+```bash
+./gradlew clean bootJar e2e-test allureReport -Dapplication.env=local
+```
+**Check generated report at `build/reports/allure-report/allureReport/index.html`**
+
+
+
+
+
 
