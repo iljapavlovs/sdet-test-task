@@ -27,7 +27,7 @@ Tests like verifying syntax of the requests and not business logic should be aut
    1. Payload with invalid model (violates schema)
       1. checking for nullability for nun-nullable fields
       2. testing with not allowed values, e.g. currency - non ISO 4217 standard values
-      3. set `type` field with non `asset` value or null - **this left out since I am working with data models in the framework, but could be added**
+      3. set `type` field with non `asset` value or null - **this was left out since I am working with data models in the framework, but could be added**
    2. with very big numbers or characters length
    3. not allowed characters
    4. getting non existent collateral
