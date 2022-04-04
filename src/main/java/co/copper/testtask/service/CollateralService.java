@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 // TODO: reimplement this
 @Service
 public class CollateralService {
-    //todo - Field Injection is Evil
-    @Autowired
-    private AssetService assetService;
+    private final AssetService assetService;
+
+    public CollateralService(AssetService assetService) {
+        this.assetService = assetService;
+    }
 
     public Long createCollateral(CollateralDto collateralDto) {
         //todo - this is really bad

@@ -1,3 +1,8 @@
 spring:
   profiles:
     active: local
+
+application:
+  min-assess-date: "2017-10-01"
+  min-asset-year: 2000
+  min-asset-value: 1000000

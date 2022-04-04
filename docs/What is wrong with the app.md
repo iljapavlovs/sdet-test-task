@@ -39,8 +39,13 @@ Was there a request made or not, what was the issue
 ## Minor
 1. Single class imports instead of importing everything
 2. using `var` for types
-4. using build.gradle.kts in Kotlin 
-5. using yml for spring configuration 
-6. add Swagger doc
-7. organize code more DDD way 
-8. Missing configuration for test
+3. using build.gradle.kts in Kotlin 
+4. using yml for spring configuration 
+5. add Swagger doc
+6. organize code more DDD way 
+7. Missing configuration for test
+
+
+
+
+

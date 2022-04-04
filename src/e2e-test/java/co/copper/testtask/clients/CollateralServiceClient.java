@@ -5,9 +5,7 @@ import co.copper.testtask.utils.ServiceEndpoint;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.cucumber.guice.ScenarioScoped;
 import io.qameta.allure.okhttp3.AllureOkHttp3;
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -15,20 +13,16 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.util.function.Function;
 
 import static co.copper.testtask.config.ApplicationProperties.ApplicationProperty.COLLATERAL_SERVICE_HOST;
 import static co.copper.testtask.config.ApplicationProperties.ApplicationProperty.COLLATERAL_SERVICE_PORT;
 
-@Slf4j
-@ScenarioScoped
 public class CollateralServiceClient {
 
   private CollateralServiceApi collateralServiceApi;
 
-  @Inject
   public CollateralServiceClient() {
     createCollateralServiceApi();
   }
@@ -49,6 +43,7 @@ public class CollateralServiceClient {
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(JacksonConverterFactory.create(mapper))
             .client(new OkHttpClient.Builder().addInterceptor(new AllureOkHttp3()).build())
+            .client(new OkHttpClient.Builder().build())
             .build()
             .create(CollateralServiceApi.class);
   }

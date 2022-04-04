@@ -1,7 +1,7 @@
-package co.copper.testtask.clients;
+package co.copper.testtask.utils;
 
-import com.github.dockerjava.zerodep.shaded.org.apache.hc.core5.http.HttpStatus;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import retrofit2.Response;
 
 import java.io.File;
@@ -30,8 +30,13 @@ public class RestHelper {
   }
 
   public static void verifyResponseStatusCreated(Response response) {
-    verifyResponseStatus(response, HttpStatus.SC_CREATED);
+    verifyResponseStatus(response, HttpStatus.CREATED.value());
   }
+
+  public static void verifyResponseStatusOk(Response response) {
+    verifyResponseStatus(response, HttpStatus.OK.value());
+  }
+
 
   public static void verifyResponseStatus(Response response, int statusCode) {
     try {

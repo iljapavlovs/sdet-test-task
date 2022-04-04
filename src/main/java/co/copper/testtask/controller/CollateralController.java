@@ -25,9 +25,9 @@ public class CollateralController {
 
     @PostMapping
     public ResponseEntity<Void> createCollateral(@RequestBody CollateralDto collateralDto) {
-        Long id = service.createCollateral(collateralDto);
+        final var id = service.createCollateral(collateralDto);
 
-        URI location = ServletUriComponentsBuilder
+        final var location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(id).toUri();
 
@@ -36,7 +36,7 @@ public class CollateralController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CollateralDto> getCollateral(@PathVariable String id) {
-        CollateralDto collateralDto = service.getCollateralById(id);
+        final var collateralDto = service.getCollateralById(id);
         return collateralDto != null ? ResponseEntity.ok(collateralDto) : ResponseEntity.notFound().build();
     }
 }

@@ -1,12 +1,6 @@
 server:
   port: 8080
   shutdown: immediate
-spring:
-  jpa:
-    ddl-auto: none
-  h2:
-    console:
-      enabled: true
 
 management:
   endpoint:
@@ -18,11 +12,12 @@ management:
       exposure:
         include: "*"
 
-
-application:
-  min-assess-date: "2017-10-01"
-  min-asset-year: 2000
-  min-asset-value: 1000000
+spring:
+  jpa:
+    ddl-auto: none
+  h2:
+    console:
+      enabled: true
 
 
 

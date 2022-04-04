@@ -28,6 +28,7 @@ public class AssetAdapter implements CollateralObject {
     public LocalDate getDate() {
         //todo - should use Clock in order to test it more conveniently
         // todo - should set Clock as a global bean with UTC as a timezone
+        //todo - better also provide this date from the client
         // take now date for all assets
         return LocalDate.now();
     }
