@@ -21,7 +21,6 @@ import java.util.function.Supplier;
 public class DataHolder {
 
   private static final DataHolder INSTANCE = new DataHolder();
-  private Map<String, Supplier<String>> testDataMap = new HashMap<>();
   private Response response;
   private List<AssetDto> collateralDtos = Collections.synchronizedList(new ArrayList<>());
 

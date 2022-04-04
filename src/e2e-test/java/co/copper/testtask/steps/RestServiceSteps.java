@@ -86,20 +86,6 @@ public class RestServiceSteps {
               .ignoringFields("id")
               .isEqualTo(expectedCollateralDto);
         });
-
-    //    expectedCollateralDtos.forEach(
-    //        expectedCollateralDto -> {
-    //          Response<CollateralDto> response =
-    //              collateralServiceClient.invoke(
-    //                  api -> api.getCollateralById(expectedCollateralDto.getId()));
-    //
-    //          verifyResponseStatusOk(response);
-    //          final var actualCollateralResponseDto = response.body();
-    //
-    //          assertThat(actualCollateralResponseDto)
-    //              .usingRecursiveComparison()
-    //              .isEqualTo(expectedCollateralDto);
-    //        });
   }
 
   @Then("^Response - HTTP Status - (BAD REQUEST|OK|CREATED|INTERNAL SERVER ERROR)$")
