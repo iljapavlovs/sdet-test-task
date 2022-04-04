@@ -9,13 +9,13 @@ import co.copper.testtask.utils.RestHelper;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import retrofit2.Response;
 
 import java.util.List;
 
 import static co.copper.testtask.config.ApplicationProperties.ApplicationProperty.COLLATERAL_SERVICE_HOST;
 import static co.copper.testtask.config.ApplicationProperties.ApplicationProperty.COLLATERAL_SERVICE_PORT;
+import static co.copper.testtask.utils.RestHelper.getHttpStatusCodeByName;
 import static co.copper.testtask.utils.RestHelper.verifyResponseStatusCreated;
 import static co.copper.testtask.utils.RestHelper.verifyResponseStatusOk;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -93,26 +93,5 @@ public class RestServiceSteps {
     final var actualResponse = dataHolder.getResponse();
     final var httpStatusCode = getHttpStatusCodeByName(expectedHttpStatus);
     RestHelper.verifyResponseStatus(actualResponse, httpStatusCode);
-  }
-
-  private int getHttpStatusCodeByName(String expectedHttpStatus) {
-    int httpStatusCode;
-    switch (expectedHttpStatus) {
-      case "BAD REQUEST":
-        httpStatusCode = HttpStatus.BAD_REQUEST.value();
-        break;
-      case "OK":
-        httpStatusCode = HttpStatus.OK.value();
-        break;
-      case "INTERNAL SERVER ERROR":
-        httpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR.value();
-        break;
-      case "CREATED":
-        httpStatusCode = HttpStatus.CREATED.value();
-        break;
-      default:
-        throw new IllegalArgumentException("Unknown parameter: " + expectedHttpStatus);
-    }
-    return httpStatusCode;
   }
 }

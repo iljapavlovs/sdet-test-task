@@ -49,4 +49,25 @@ public class RestHelper {
       log.warn(e.getMessage());
     }
   }
+
+  public static int getHttpStatusCodeByName(String expectedHttpStatus) {
+    int httpStatusCode;
+    switch (expectedHttpStatus) {
+      case "BAD REQUEST":
+        httpStatusCode = HttpStatus.BAD_REQUEST.value();
+        break;
+      case "OK":
+        httpStatusCode = HttpStatus.OK.value();
+        break;
+      case "INTERNAL SERVER ERROR":
+        httpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR.value();
+        break;
+      case "CREATED":
+        httpStatusCode = HttpStatus.CREATED.value();
+        break;
+      default:
+        throw new IllegalArgumentException("Unknown parameter: " + expectedHttpStatus);
+    }
+    return httpStatusCode;
+  }
 }
