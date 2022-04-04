@@ -25,7 +25,7 @@ docker compose up --build
 ```
 
 
-## For Tests, Improvements, etc go to ![alt text](/docs) 
+## For Tests, Improvements, etc go to [docs](/docs) 
 
 
 
