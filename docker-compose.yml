@@ -1,0 +1,29 @@
+version: '3'
+services:
+  collateral-service:
+    build:
+      #todo - messy, but wanted to always get version from local. otherwise, image should be uploaded to docker registry
+      context: .
+      dockerfile: devops/docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    networks:
+      - sdet
+
+#  database:
+#    image: postgres
+#    environment:
+#      TZ: "UTC"
+#      POSTGRES_DB: collateral
+#      POSTGRES_USER: admin
+#      POSTGRES_PASSWORD: admin
+#
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  sdet:

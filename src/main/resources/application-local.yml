@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  shutdown: immediate
+
+management:
+  endpoint:
+    health:
+      show-components: always
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  jpa:
+    ddl-auto: none
+  h2:
+    console:
+      enabled: true
+
+
+
+
+
+
+
+

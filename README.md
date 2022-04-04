@@ -1,17 +1,31 @@
-# sdet-test-task
-Installation requirements:
-- JDK starting 11 
-- Gradle starting 5
+# Collateral Service
 
-To run service use `gradle run`
+### Test Infrastructure
+* Self-contained tests which spin up the application in Docker containers using [Testcontainers](https://www.testcontainers.org/)
+* Framework uses Cucumber version 7 with Junit 5 support
+* Tests can be found at `src/e2e-test/resources/co/copper/testtask/Collateral.feature`
 
-In this test task you should:
+### Running Tests
+```bash
+./gradlew clean bootJar e2e-test allureReport -Dapplication.env=local
+```
 
-1. Analyze this test service
-2. Write test cases that will cover this service
-3. Write automation tests for written test cases. You can use Java or Typescript
-4. Write some suggestion for service. How we can improve it
+### Reporting
+[Allure](http://allure.qatools.ru/) report by default is generated at **`build/reports/allure-report/allureReport/index.html`**
 
-As a result you should provide link to Github repository that contains 
-this service and tests including docker-compose file to run service with tests
+#### Running application separately for local development
+1. Build the project
+```bash
+./gradlew clean build -x test
+```
+
+2. Run project via docker
+```bash
+docker compose up --build
+```
+
+
+## For Tests, Improvements, etc go to ![docs] 
+
+
 

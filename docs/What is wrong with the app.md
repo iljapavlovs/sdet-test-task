@@ -17,7 +17,7 @@
 8. Naming is off - CollateralObject, CollateralObjectController
 9. Controller
    1. add /api/v1 to the path to common path
-   2. should have common `/collaterals` path on top
+   2. should have common `/collateralDtos` path on top
    3. methods should not return `HttpEntity`, but more narrowed down class as `ResponseEntity`, or just a DTO 
    4. by REST convention, POST should return Location header for the created resource 
    5. Controller should not have any logic for response. This should be handled in service, throwing an exception. 
@@ -32,13 +32,20 @@
 12. Using real to world database instead of in memory for prod and test 
 13. adding `final` for immutability for variables
 14. SQL script - `NOT NULL` could be added as additional safety gate
+15. Add logging since now when negative path occurs due to business req, then it's not clear what is going on. 
+Was there a request made or not, what was the issue
 
 
 ## Minor
 1. Single class imports instead of importing everything
 2. using `var` for types
-4. using build.gradle.kts in Kotlin 
-5. using yml for spring configuration 
-6. add Swagger doc
-7. organize code more DDD way 
-8. Missing configuration for test
+3. using build.gradle.kts in Kotlin 
+4. using yml for spring configuration 
+5. add Swagger doc
+6. organize code more DDD way 
+7. Missing configuration for test
+
+
+
+
+

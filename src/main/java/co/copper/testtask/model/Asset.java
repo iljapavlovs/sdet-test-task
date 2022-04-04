@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.Currency;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class Asset {
     private Long id;
     private String name;
     //todo - use Currency type
-    private String currency;
+    private Currency currency;
 
     @Column(name = "year_of_issue")
     private Short year;
