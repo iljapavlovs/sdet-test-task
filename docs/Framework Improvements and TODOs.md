@@ -1,5 +1,5 @@
 # Framework Improvements and TODOs
-1. Report is generated with full steps due to compatibility issues in Cucumber 7 and Allure, but Cucumber 6 with Allure can be checked at a specific commit
+1. Report is not generated with full steps due to compatibility issues in Cucumber 7 and Allure, but Cucumber 6 with Allure can be checked at a specific commit
 2. DI could be used for caring less about object lifecycle mgmt - Cucumber and Guice example can be checked at a specific commit
 3. Add unit and integration tests, including integration tests by slices and full context
 4. Contract tests could be added, but there is no much need as there is no consumer side. 
