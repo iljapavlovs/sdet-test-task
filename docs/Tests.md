@@ -1,5 +1,6 @@
 # Tests
 
+## Rationale Behind The Approach
 Firstly, I am rooting against having tests outside of code (like any tms, jira), but should reside together with the codebase.
 This applies for all levels of test type including acceptance tests (e2e). This means that we need to use the same tech stack for tests as in which codebase is written. 
 > E.g. don't use RestAssured, use the same client which is used in codebase. 
