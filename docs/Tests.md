@@ -1,8 +1,10 @@
 # Tests
 
 Firstly, I am rooting against having tests outside of code (like any tms, jira), but should reside together with the codebase.
-This applies for all levels of test type including acceptance tests (e2e). This means that we need to use the same tech stack for tests as in which codebase is written. E.g. don't use RestAssured, use the same client which is used in codebase 
-It makes much easier for QAs and devs work together and T-shape skill approach could be applied with less hassle.
+This applies for all levels of test type including acceptance tests (e2e). This means that we need to use the same tech stack for tests as in which codebase is written. 
+> E.g. don't use RestAssured, use the same client which is used in codebase. 
+It makes much easier for QAs and devs work together and T-shape skill approach could be applied with less hassle. 
+> Also, instead of learning some high level DSL (like *RestAssured, CodeceptJs, Karate, etc*), you are learning a proper library which is intended for development purposes (*Retrofit, Feign, Axios, etc*).
 
 Ideally, developers should have full accountability of their code starting with writing the code and tests to deployment and monitoring in PROD.
 
