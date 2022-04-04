@@ -1,12 +1,17 @@
 # Tests
 
 Firstly, I am rooting against having tests outside of code (like any tms, jira), but should reside together with the codebase.
-This applies for all levels of test type including acceptance tests (e2e).
-For e2e we could use Cucumber and Gherkin for better readability for non-technical people, 
+This applies for all levels of test type including acceptance tests (e2e). This means that we need to use the same tech stack for tests as in which codebase is written. E.g. don't use RestAssured, use the same client which is used in codebase 
+It makes much easier for QAs and devs work together and T-shape skill approach could be applied with less hassle.
+
+Ideally, developers should have full accountability of their code starting with writing the code and tests to deployment and monitoring in PROD.
+
+In order to bridge the gap between developers and stakeholders for e2e we could use Cucumber and Gherkin for better readability for non-technical people, 
 but then Gherkin steps should be designed with thought considering balance between being very low level and high level in its description of steps.
 
-Another thing - not all below-mentioned tests should be part of e2e layer! 
+Regarding test pyramid - not all below-mentioned tests should be part of e2e layer! 
 Tests like verifying syntax of the requests and not business logic should be automated in unit/integration level in order to adhere to proper Test Pyramid approach.
+
 ## Test cases 
 
 ### Functional

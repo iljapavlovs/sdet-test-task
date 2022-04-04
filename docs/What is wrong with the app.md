@@ -34,6 +34,7 @@
 14. SQL script - `NOT NULL` could be added as additional safety gate
 15. Add logging since now when negative path occurs due to business req, then it's not clear what is going on. 
 Was there a request made or not, what was the issue
+16. just use Kotlin!!!
 
 
 ## Minor
