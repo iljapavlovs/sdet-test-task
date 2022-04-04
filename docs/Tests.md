@@ -1,17 +1,31 @@
 # Tests
 
 ## Rationale Behind The Approach
+
+#### On where test code should be located
 Firstly, I am rooting against having tests outside of code (like any tms, jira), but should reside together with the codebase.
-This applies for all levels of test type including acceptance tests (e2e). This means that we need to use the same tech stack for tests as in which codebase is written. 
+This applies for all levels of test type including contract, acceptance (e2e), security and performance tests.
+Since codebase is versioned together with the tests and tests should run on every commit to trunk, then we can achieve releasing services independently which is one of the main problems in microservices realm where integration testing between services is key.
+
+#### On using the same tech stack for tests as for codebase
+In addition, preferably we need to use the same tech stack for tests as in which codebase is written. 
+It makes much easier for QAs and devs work together and T-shape skill approach could be applied with less hassle.
 > E.g. don't use RestAssured, use the same client which is used in codebase. 
 It makes much easier for QAs and devs work together and T-shape skill approach could be applied with less hassle. 
 > Also, instead of learning some high level DSL (like *RestAssured, CodeceptJs, Karate, etc*), you are learning a proper library which is intended for development purposes (*Retrofit, Feign, Axios, etc*).
 
-Ideally, developers should have full accountability of their code starting with writing the code and tests to deployment and monitoring in PROD.
+Also, developers should have full accountability of their code starting with writing the code and tests to deployment and monitoring in PROD, 
+so this makes up another motive for having tests written in the same tech stack as codebase.
 
+#### On how to make tests stored in code more readable for not-tech people
 In order to bridge the gap between developers and stakeholders for e2e we could use Cucumber and Gherkin for better readability for non-technical people, 
 but then Gherkin steps should be designed with thought considering balance between being very low level and high level in its description of steps.
 
+#### On test coverage or requirements traceability
+Every test should also be annotated with corresponding requirement. This could be an Epic, Story.
+By means of modern reporting solutions (e.g. Allure) we can even easily integrate reports with Jira or TMS if needed.
+
+#### On Test Pyramid
 Regarding test pyramid - not all below-mentioned tests should be part of e2e layer! 
 Tests like verifying syntax of the requests and not business logic should be automated in unit/integration level in order to adhere to proper Test Pyramid approach.
 
